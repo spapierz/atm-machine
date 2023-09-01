@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense, lazy, useContext } from 'react';
 import './App.css';
+import Header from './components/Header';
+import { CircularProgress } from '@mui/material';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Updated import
+import { ATMContext, ATMProvider } from './context/ATMContext';
 
-function App() {
+const spinnerStyles: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '50vh',
+};
+
+const LazyPinView = lazy(() => import('./views/PinView'));
+const LazyAccountView = lazy(() => import('./views/AccountView'));
+const LazyWithDrawalView = lazy(() => import('./views/WithdrawalView'));
+const LazyDepositView = lazy(() => import('./views/DepositView'));
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <ATMProvider>
+          <Header />
+          <Suspense fallback={<div style={spinnerStyles}><CircularProgress /></div>}>
+            <Routes>
+              <Route path="/" element={<LazyPinView />} />
+              <Route path="/account" element={<LazyAccountView />} />
+              <Route path="/withdrawal" element={<LazyWithDrawalView />} />
+              <Route path="/deposit" element={<LazyDepositView />} />
+            </Routes>
+          </Suspense>
+        </ATMProvider>
+      </div>
+    </Router>
   );
 }
 

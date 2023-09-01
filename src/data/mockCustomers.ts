@@ -1,0 +1,73 @@
+export const mockCustomers = [
+    {
+      id: 1,
+      name: 'Alice Johnson',
+      pin: '1234',
+      balance: 1500,
+      dailyWithdrawalLimit: 500,
+    },
+    {
+      id: 2,
+      name: 'Bob Smith',
+      pin: '5678',
+      balance: 2000,
+      dailyWithdrawalLimit: 600,
+    },
+    {
+      id: 3,
+      name: 'Charlie Brown',
+      pin: '9876',
+      balance: 3500,
+      dailyWithdrawalLimit: 700,
+    },
+    {
+      id: 4,
+      name: 'David Williams',
+      pin: '2468',
+      balance: 4500,
+      dailyWithdrawalLimit: 800,
+    },
+    {
+      id: 5,
+      name: 'Ella Davis',
+      pin: '1357',
+      balance: 2800,
+      dailyWithdrawalLimit: 550,
+    },
+    {
+      id: 6,
+      name: 'Frank Miller',
+      pin: '8642',
+      balance: 6000,
+      dailyWithdrawalLimit: 900,
+    },
+    {
+      id: 7,
+      name: 'Grace Wilson',
+      pin: '3141',
+      balance: 1200,
+      dailyWithdrawalLimit: 400,
+    },
+    {
+      id: 8,
+      name: 'Henry Martinez',
+      pin: '7777',
+      balance: 8000,
+      dailyWithdrawalLimit: 1000,
+    },
+    {
+      id: 9,
+      name: 'Isabel Johnson',
+      pin: '2222',
+      balance: 5500,
+      dailyWithdrawalLimit: 750,
+    },
+    {
+      id: 10,
+      name: 'Jack Anderson',
+      pin: '8888',
+      balance: 3200,
+      dailyWithdrawalLimit: 600,
+    },
+  ];
+  
