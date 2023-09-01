@@ -45,14 +45,6 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
   
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const map: { [pin: string]: Customer } = {};
-    mockCustomers.forEach((customer) => {
-      map[customer.pin] = customer;
-    });
-    setCustomersMap(map);
-  }, []);
-
   const login = (pin: string) => {
     const customerData = customersMap[pin];
     if (customerData) {
@@ -96,6 +88,18 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
       }
     }
   };
+
+  useEffect(() => {
+    const map: { [pin: string]: Customer } = {};
+    mockCustomers.forEach((customer) => {
+      map[customer.pin] = customer;
+    });
+    setCustomersMap(map);
+
+    if (!customer) {
+      navigate('/');
+    }
+  }, []);
 
   useEffect(() => {
     if (updatedCustomer) {
