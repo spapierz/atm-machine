@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { ATMContext } from '../context/ATMContext';
 import { Button, Card, CardContent, FormControl, Grid, Typography } from '@mui/material';
 import { Input } from '../components/Input';
+import BackButton from '../components/BackButton';
+import { formatToDollar } from '../utils/utils';
 
 const cardStyles = {
   padding: '2rem'
@@ -31,6 +33,7 @@ export const WithDrawalView: React.FC = () => {
   return(
     <Grid container justifyContent={'center'} spacing={2}>
       <Grid item>
+        <BackButton text='Back to Account' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
             <FormControl variant="outlined">
@@ -51,7 +54,7 @@ export const WithDrawalView: React.FC = () => {
               </Button>
               {error && (
                 <Typography variant="body2" color="error" sx={{mt: 1}}>
-                  You have reached your daily withdrawal limit of ${customer && (customer.dailyWithdrawalLimit / 100).toFixed(2)}
+                  You have reached your daily withdrawal limit of {customer && formatToDollar(customer.dailyWithdrawalLimit)}
                 </Typography>
               )}              
             </FormControl>

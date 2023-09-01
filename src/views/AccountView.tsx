@@ -3,6 +3,7 @@ import { ATMContext } from '../context/ATMContext';
 import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { formatToDollar } from '../utils/utils';
+import BackButton from '../components/BackButton';
 
 const cardStyles = {
   padding: '2rem'
@@ -30,8 +31,9 @@ export const AccountView: React.FC = () => {
   };
 
   return(
-    <Grid container justifyContent={'center'} spacing={2}>
+    <Grid container justifyContent={'center'} spacing={2} sx={{ mb: 7 }}>
       <Grid item sx={{ maxWidth: '70rem', width: '90%' }}>
+        <BackButton text='Logout' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
             <Typography variant='h5' color="text.secondary" gutterBottom sx={{textAlign: 'center'}}>
@@ -44,7 +46,7 @@ export const AccountView: React.FC = () => {
                   Account Balance:
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} variant='h6' color="text.secondary">
-                  {formatToDollar(balance)}
+                  {formatToDollar(balance).toLocaleString()}
                 </Typography>
               </Grid>
               <Grid item xs={6} sx={{textAlign: 'right'}}>

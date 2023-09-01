@@ -3,6 +3,7 @@ import { ATMContext } from '../context/ATMContext';
 import { Button, Card, CardContent, FormControl, Grid } from '@mui/material';
 import { Input } from '../components/Input';
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 
 const cardStyles = {
   padding: '2rem'
@@ -34,6 +35,7 @@ export const DepositView: React.FC = () => {
   return(
     <Grid container justifyContent={'center'} spacing={2}>
       <Grid item>
+        <BackButton text='Back to Account' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
             <FormControl variant="outlined">

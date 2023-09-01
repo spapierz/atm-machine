@@ -9,7 +9,7 @@ const boxStyles = {
 };
 
 const logoStyles = {
-  maxWidth: '225px',
+  maxWidth: '200px',
   height: 'auto',
   padding: '2rem 0px 2rem',
   cursor: 'pointer'
@@ -24,8 +24,8 @@ const Header: React.FC = () => {
       <img
         src={logo}
         alt="Back to Enter Your PIN Screen"
-        width="225px"
-        height="300px"
+        width="200px"
+        height="225px"
         style={logoStyles}
         onClick={() => navigate('/')}
       />

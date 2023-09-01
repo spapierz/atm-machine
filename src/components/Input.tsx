@@ -8,7 +8,8 @@ interface InputProps {
   icon?: any;
   error: boolean;
   type: string;
-  handleOnChange: (event: ChangeEvent<HTMLInputElement>) => void}
+  handleOnChange: (event: ChangeEvent<HTMLInputElement>) => void
+}
 
 export const Input: React.FC<InputProps> = ({
   value,
@@ -17,20 +18,17 @@ export const Input: React.FC<InputProps> = ({
   type,
   icon,
   handleOnChange
-}) => {
-
-  return (
-    <>
-      <InputLabel>{label}</InputLabel>
-      <OutlinedInput
-        type={type}
-        sx={{ backgroundColor: '#fff'}}
-        value={value}
-        onChange={handleOnChange}
-        error={error}
-        endAdornment={icon}
-        label={label}
-      />
-    </>
-  )
-};
+}) => (
+  <>
+    <InputLabel>{label}</InputLabel>
+    <OutlinedInput
+      type={type}
+      sx={{ backgroundColor: '#fff'}}
+      value={value}
+      onChange={handleOnChange}
+      error={error}
+      endAdornment={icon}
+      label={label}
+    />
+  </>
+);
