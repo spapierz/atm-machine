@@ -18,7 +18,11 @@ The project is structured as follows:
 
 - `src/`: Main source code directory.
   - `components/`: Reusable UI components.
+  - `context/`: Holds related context providers for global state management.
+  - `data/`: Holds mock data for user accounts
   - `interfaces/`: TypeScript interfaces used throughout the app.
+  - `styles/`: Holds background style.
+  - `utils/`: Holds functions that can be used throughout the app.
   - `views/`: Different application views or pages.
   - `App.tsx`: Entry point handling routing.
   - `index.tsx`: Initializes the React app and renders it in the DOM.
@@ -48,6 +52,7 @@ Upon accessing the application, you'll be prompted to enter a PIN to authenticat
 
 - TypeScript
 - React
+- React Router
 - React Testing Library
 - Yarn
 
