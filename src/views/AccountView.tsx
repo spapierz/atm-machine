@@ -33,7 +33,7 @@ export const AccountView: React.FC = () => {
   return(
     <Grid container justifyContent={'center'} spacing={2} sx={{ mb: 7 }}>
       <Grid item sx={{ maxWidth: '70rem', width: '90%' }}>
-        <BackButton text='Logout' />
+        <BackButton text='Go Back' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
             <Typography variant='h5' color="text.secondary" gutterBottom sx={{textAlign: 'center'}}>
