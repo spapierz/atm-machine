@@ -78,6 +78,8 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
       if (withdrawalValuePennies < dailyWithdrawalLimit) {
         const newBalancePennies = currentBalance - withdrawalValuePennies;
         updated.balance = newBalancePennies;
+        console.log('dailyWithdrawalLimit', dailyWithdrawalLimit)
+        console.log('withdrawalValuePennies', withdrawalValuePennies)
         updated.dailyWithdrawalLimit = dailyWithdrawalLimit - withdrawalValuePennies;
         setUpdatedCustomer(updated);
         navigate('/account');
@@ -89,11 +91,11 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
   };
 
   useEffect(() => {
-    const map: { [pin: string]: Customer } = {};
+    const customerMapLookup: { [pin: string]: Customer } = {};
     mockCustomers.forEach((customer) => {
-      map[customer.pin] = customer;
+      customerMapLookup[customer.pin] = customer;
     });
-    setCustomersMap(map);
+    setCustomersMap(customerMapLookup);
 
     if (!customer) {
       navigate('/');
