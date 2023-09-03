@@ -3,18 +3,25 @@ import { Button, Box } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { createBrowserHistory } from 'history';
 import { ATMContext } from '../context/ATMContext';
+import { useNavigate } from 'react-router-dom';
 
 interface ButtonProps {
-  text: string
+  text: string,
+  customUrl?: string
 }
 
-const BackButton: React.FC<ButtonProps> = ({ text }) => {
+const BackButton: React.FC<ButtonProps> = ({ text, customUrl }) => {
   const { setError } = useContext(ATMContext)
   const history = createBrowserHistory();
+  const navigate = useNavigate();
   
   const handleGoBack = () => {
     setError(false);
-    history.back();
+    if (customUrl) {
+      navigate(customUrl);
+    } else {
+      history.back();
+    }
   };
 
   return (
