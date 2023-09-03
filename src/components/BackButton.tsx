@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Box } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import { createBrowserHistory } from 'history';
-import { ATMContext, useATMContext } from '../context/ATMContext';
+import { ATMContext } from '../context/ATMContext';
 
 interface ButtonProps {
   text: string

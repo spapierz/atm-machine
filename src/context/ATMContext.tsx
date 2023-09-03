@@ -1,5 +1,4 @@
 import { createContext, useContext, ReactNode, useState, useEffect } from 'react';
-import Decimal from 'decimal.js';
 
 
 import {
@@ -99,7 +98,7 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
     if (!customer) {
       navigate('/');
     }
-  }, []);
+  }, [customer, navigate]);
 
   useEffect(() => {
     if (updatedCustomer) {
