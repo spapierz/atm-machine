@@ -77,7 +77,7 @@ export const ATMProvider = ({ children }: ATMProviderProps) => {
       const withdrawalValuePennies = withdrawalValue * 100;
 
       if (withdrawalValuePennies < dailyWithdrawalLimit) {
-        const newBalancePennies = currentBalance - customer.dailyWithdrawalLimit;
+        const newBalancePennies = currentBalance - withdrawalValuePennies;
         updated.balance = newBalancePennies;
         updated.dailyWithdrawalLimit = dailyWithdrawalLimit - withdrawalValuePennies;
         setUpdatedCustomer(updated);
