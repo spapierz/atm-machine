@@ -55,8 +55,8 @@ export const WithDrawalView: React.FC = () => {
                     Submit Withdrawal
                 </Button>
                 {error && (
-                  <Typography variant="body2" color="error" sx={{mt: 1}}>
-                    You have reached your daily withdrawal limit of {customer && formatToDollar(customer.dailyWithdrawalLimit)}
+                  <Typography variant="body2" color="error" sx={{mt: 1, maxWidth: '200px'}}>
+                    You have either reached your daily withdrawal limit of {customer && formatToDollar(customer.dailyWithdrawalLimit)}, or are trying to withdrawal more than your current balance of {customer && formatToDollar(customer.balance)}.
                   </Typography>
                 )}
               </FormControl>

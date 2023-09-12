@@ -3,7 +3,7 @@ export const mockCustomers = [
       id: 1,
       name: 'Alice Johnson',
       pin: '1234',
-      balance: 1500,
+      balance: 200,
       dailyWithdrawalLimit: 500,
     },
     {
