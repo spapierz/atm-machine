@@ -77,7 +77,7 @@ export const PinView: React.FC = () => {
               disabled={!pinValue}
               onClick={handleOnSubmit}
             >
-              Submit
+              Login
             </Button>
             {error && (
               <Typography variant="body2" color="error" sx={{mt: 1}}>

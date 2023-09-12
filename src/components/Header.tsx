@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const boxStyles = {
   display: 'flex', 
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "center"
 };
 
 const logoStyles = {
