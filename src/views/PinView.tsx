@@ -38,7 +38,8 @@ export const PinView: React.FC = () => {
     setError(false);
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     login(pinValue);
   };
 
@@ -72,10 +73,9 @@ export const PinView: React.FC = () => {
             />
             <Button
               variant="contained"
-              role="submit"
+              type="submit"
               style={assignButtonStyles}
               disabled={!pinValue}
-              onClick={handleOnSubmit}
             >
               Login
             </Button>

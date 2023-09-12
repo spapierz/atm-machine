@@ -1,14 +1,17 @@
 import { InputLabel, OutlinedInput } from '@mui/material';
 import React, { ChangeEvent } from 'react';
 
-interface InputProps {
+type InputHTMLAttributes = React.InputHTMLAttributes<HTMLInputElement>;
+
+interface InputProps extends InputHTMLAttributes {
   sx?: React.CSSProperties;
   label?: string;
   value?: string;
   icon?: any;
   error: boolean;
   type: string;
-  handleOnChange: (event: ChangeEvent<HTMLInputElement>) => void
+  handleOnChange: (event: ChangeEvent<HTMLInputElement>) => void,
+  inputProps?: React.InputHTMLAttributes<HTMLInputElement>
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -17,7 +20,8 @@ export const Input: React.FC<InputProps> = ({
   error,
   type,
   icon,
-  handleOnChange
+  handleOnChange,
+  inputProps
 }) => (
   <>
     <InputLabel>{label}</InputLabel>
@@ -29,6 +33,7 @@ export const Input: React.FC<InputProps> = ({
       error={error}
       endAdornment={icon}
       label={label}
+      inputProps={inputProps}
     />
   </>
 );

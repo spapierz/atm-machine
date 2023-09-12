@@ -26,7 +26,8 @@ export const WithDrawalView: React.FC = () => {
     setError(false)
   };
 
-  const handleWithdrawalClick = () => {
+  const handleSubmitWithdrawal = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     submitWithdrawal();
   };
 
@@ -36,28 +37,30 @@ export const WithDrawalView: React.FC = () => {
         <BackButton text='Back to Account' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
-            <FormControl variant="outlined">
-              <Input
-                  label='Withdrawal Amount'
-                  error={false}
-                  type='number'
-                  handleOnChange={handleOnChange}
-              />
-              <Button
-                  variant="contained"
-                  type="button"
-                  sx={buttonStyles}
-                  onClick={handleWithdrawalClick}
-                  disabled={!withdrawalValue}
-              >
-                  Submit Withdrawal
-              </Button>
-              {error && (
-                <Typography variant="body2" color="error" sx={{mt: 1}}>
-                  You have reached your daily withdrawal limit of {customer && formatToDollar(customer.dailyWithdrawalLimit)}
-                </Typography>
-              )}              
-            </FormControl>
+            <form onSubmit={handleSubmitWithdrawal}>
+              <FormControl variant="outlined">
+                <Input
+                    label='Withdrawal Amount'
+                    error={false}
+                    type='number'
+                    inputProps={{ step: '0.01' }}
+                    handleOnChange={handleOnChange}
+                />
+                <Button
+                    variant="contained"
+                    type="submit"
+                    sx={buttonStyles}
+                    disabled={!withdrawalValue}
+                >
+                    Submit Withdrawal
+                </Button>
+                {error && (
+                  <Typography variant="body2" color="error" sx={{mt: 1}}>
+                    You have reached your daily withdrawal limit of {customer && formatToDollar(customer.dailyWithdrawalLimit)}
+                  </Typography>
+                )}
+              </FormControl>
+            </form>
           </CardContent>
         </Card>
       </Grid>

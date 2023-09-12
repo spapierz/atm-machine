@@ -27,7 +27,8 @@ export const DepositView: React.FC = () => {
     setError(false);
   };
 
-  const handleDepositClick = () => {
+  const handleSubmitDeposit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     submitDeposit();
     navigate('/account');
   };
@@ -38,23 +39,25 @@ export const DepositView: React.FC = () => {
         <BackButton text='Back to Account' />
         <Card variant='outlined' sx={cardStyles}>
           <CardContent>
-            <FormControl variant="outlined">
-              <Input
-                  label='Deposit Amount'
-                  error={false}
-                  type='number'
-                  handleOnChange={handleOnChange}
-              />
-              <Button
-                  variant="contained"
-                  type="button"
-                  sx={buttonStyles}
-                  onClick={handleDepositClick}
-                  disabled={!depositValue}
-              >
-                  Submit Deposit
-              </Button>
+            <form onSubmit={(handleSubmitDeposit)}>
+              <FormControl variant="outlined">
+                <Input
+                    label='Deposit Amount'
+                    error={false}
+                    type='number'
+                    inputProps={{ step: '0.01' }}
+                    handleOnChange={handleOnChange}
+                />
+                <Button
+                    variant="contained"
+                    type="submit"
+                    sx={buttonStyles}
+                    disabled={!depositValue}
+                >
+                    Submit Deposit
+                </Button>
             </FormControl>
+          </form>
           </CardContent>
         </Card>
       </Grid>

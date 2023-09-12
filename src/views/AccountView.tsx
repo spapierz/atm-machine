@@ -61,14 +61,14 @@ export const AccountView: React.FC = () => {
             <hr />
           </CardContent>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item sm={6}>
               <CardActions>
                 <Button  variant="contained" sx={buttonStyles} onClick={handleDepositClick}>
                   Make a Deposit
                 </Button>
               </CardActions>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item sm={6}>
               <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <Button  variant="outlined" sx={buttonStyles} onClick={handleWithdrawalClick}>
                   Make a Withdrawal
