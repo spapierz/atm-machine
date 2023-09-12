@@ -38,7 +38,7 @@ export const PinView: React.FC = () => {
     setError(false);
   };
 
-  const handleOnClick = () => {
+  const handleOnSubmit = () => {
     login(pinValue);
   };
 
@@ -50,40 +50,42 @@ export const PinView: React.FC = () => {
         </Typography>
       </Grid>
       <Grid item sx={boxStyles}>
-        <FormControl variant="outlined">
-          <Input
-            label='PIN'
-            handleOnChange={handleOnChange}
-            value={pinValue}
-            error={error}
-            type={showPassword ? 'number' : 'password'}
-            icon={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-          <Button
-            variant="contained"
-            type="button"
-            style={assignButtonStyles}
-            disabled={!pinValue}
-            onClick={handleOnClick}
-          >
-            Submit
-          </Button>
-          {error && (
-            <Typography variant="body2" color="error" sx={{mt: 1}}>
-              Invalid PIN
-            </Typography>
-          )}
-        </FormControl>
+        <form onSubmit={handleOnSubmit}>
+          <FormControl variant="outlined">
+            <Input
+              label='PIN'
+              handleOnChange={handleOnChange}
+              value={pinValue}
+              error={error}
+              type={showPassword ? 'number' : 'password'}
+              icon={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+            <Button
+              variant="contained"
+              role="submit"
+              style={assignButtonStyles}
+              disabled={!pinValue}
+              onClick={handleOnSubmit}
+            >
+              Submit
+            </Button>
+            {error && (
+              <Typography variant="body2" color="error" sx={{mt: 1}}>
+                Invalid PIN
+              </Typography>
+            )}
+          </FormControl>
+        </form>
       </Grid>
     </Grid>
   );
